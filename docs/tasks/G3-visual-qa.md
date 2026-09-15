@@ -4,7 +4,7 @@
 |---|---|
 | Owner | **Gemini** |
 | Branch | `gemini/G3-visual-qa` |
-| 依賴 | C1、C2、G1 已合併；C3 的 `pnpm shots` 已可用 |
+| 依賴 | C1、C2、G1 已合併；C3 的 `npm run shots` 已可用 |
 | 可平行 | C3 其餘項目 |
 
 ## 目標
@@ -13,11 +13,11 @@
 
 ## 步驟
 
-1. `pnpm shots`，產出 `.shots/` 截圖。
+1. `npm run shots`，產出 `.shots/` 截圖。
 2. 逐張讀取截圖（`@.shots/375-full.png` 等），依下方清單審查。
 3. 寫 `docs/qa/visual-review.md`。
 4. 修正屬於自己擁有檔案（G1 的元件、`public/images/`）的 P0 / P1 問題。
-5. 重跑 `pnpm shots`，把修正前後的差異記錄在 review 文件中。
+5. 重跑 `npm run shots`，把修正前後的差異記錄在 review 文件中。
 
 ## 審查清單
 
@@ -78,7 +78,7 @@
 - [ ] `docs/qa/visual-review.md` 完成，涵蓋 375 / 768 / 1280 / 1440
 - [ ] Gemini 擁有的 P0 / P1 全部修正並附修正後截圖檔名
 - [ ] Codex 擁有的問題清楚列出，可直接轉成任務
-- [ ] `pnpm lint && pnpm typecheck && pnpm generate` 通過
+- [ ] `npm run lint && npm run typecheck && npm run generate` 通過
 
 ## 回報格式
 

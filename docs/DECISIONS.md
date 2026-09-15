@@ -11,10 +11,11 @@
 | 項目 | 決定 |
 |---|---|
 | Framework | Nuxt 4 + TypeScript，`<script setup lang="ts">` |
-| 輸出 | SSG（`pnpm generate`），產出靜態檔部署 |
+| 輸出 | SSG（`npm run generate`），產出靜態檔部署 |
 | 樣式 | 原生 CSS + CSS Custom Properties；元件內 `<style scoped>`。**不用** Tailwind / UI Kit / 動畫庫 |
 | Nuxt 模組 | `@nuxt/image`、`@nuxt/fonts`、`@nuxt/eslint` |
-| 套件管理 | pnpm，Node 22+ |
+| 套件管理 | **npm**（不用 pnpm / yarn） |
+| Node | 全機維持 20.11 不動；專案以 devDependency `"node": "^22.19.0"` 提供 Node 22（`npm run` 自動使用）。安裝依賴一律用 `npx -y -p node@22.23.2 -p npm@11 -c "npm install"`。CI 直接用 Node 22 + `npm ci` |
 | 測試 | Vitest + `@nuxt/test-utils`（unit）、Playwright + `@axe-core/playwright`（e2e / a11y）、`@lhci/cli` |
 | 新增依賴 | 以上以外的依賴一律需在回報中說明理由，由整合者核准 |
 
@@ -229,7 +230,7 @@ Footer
 - agent **不得** push / merge / rebase main；由整合者合併。
 - 完成定義（C1 合併後適用）：
   ```bash
-  pnpm lint && pnpm typecheck && pnpm test && pnpm generate
+  npm run lint && npm run typecheck && npm run test && npm run generate
   ```
   全部通過才可回報完成。
 

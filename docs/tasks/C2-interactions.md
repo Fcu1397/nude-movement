@@ -73,7 +73,7 @@
 
 ## 驗收
 
-- [ ] `pnpm lint && pnpm typecheck && pnpm test && pnpm generate` 通過
+- [ ] `npm run lint && npm run typecheck && npm run test && npm run generate` 通過
 - [ ] 僅用鍵盤可完成：開選單 → 跳到 Policy → 展開 Accordion 01 → 跳到 FAQ 讀到問題列
 - [ ] 目前資料（LINE / IG 為 null）下，頁面沒有任何 LINE / IG 元素、沒有底部列、沒有多餘空白
 - [ ] 暫時把 `lineUrl` 填入測試值時，Header CTA 與底部列出現，375px 下 Footer 最後一行不被遮住（驗證後還原）

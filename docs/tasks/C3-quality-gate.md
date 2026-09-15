@@ -5,7 +5,7 @@
 | Owner | **Codex** |
 | Branch | `codex/C3-quality` |
 | 依賴 | C1、C2、G1 已合併（G2 可未完成） |
-| 可平行 | G3（G3 需要本任務的 `pnpm shots`，建議先完成第 1 項再通知 G3） |
+| 可平行 | G3（G3 需要本任務的 `npm run shots`，建議先完成第 1 項再通知 G3） |
 
 ## 目標
 
@@ -14,7 +14,7 @@
 ## 範圍
 
 ### 1. 截圖工具（優先完成）
-- `scripts/shots.ts` + `pnpm shots`：對 `pnpm generate` 產物起 preview server，以 Playwright 輸出 full-page 截圖到 `.shots/`：
+- `scripts/shots.ts` + `npm run shots`：對 `npm run generate` 產物起 preview server，以 Playwright 輸出 full-page 截圖到 `.shots/`：
   - 寬度 375、768、1280、1440
   - 檔名 `{width}-full.png`，另外每個 section 各一張 `{width}-{sectionId}.png`
   - 375 寬額外一張「行動選單開啟」`375-menu-open.png`
@@ -43,7 +43,8 @@
 
 ### 5. CI
 - `.github/workflows/ci.yml`（push / PR）：install → lint → typecheck → test → generate → e2e → lhci。
-- 快取 pnpm store 與 Playwright browsers。
+- `actions/setup-node` 用 Node 22、`cache: npm`，安裝用 `npm ci`（CI 不需要本機的 npx 包裝指令）；快取 Playwright browsers。
+- 本機安裝 Playwright 瀏覽器請包成 script（例如 `"e2e:install": "playwright install chromium"`）以 `npm run` 執行，確保跑在 Node 22。
 
 ### 6. 文件
 - `docs/DEPLOY.md`：靜態部署步驟（Cloudflare Pages / Netlify / Vercel 任一，指令與輸出目錄），上線前 checklist（對應 DECISIONS 的 B1–B9），並寫明「業主資料到位時要改 `site.ts` 哪些欄位、改完會自動出現哪些元素」。
@@ -55,8 +56,8 @@
 
 ## 驗收
 
-- [ ] `pnpm shots` 產出所有指定截圖
-- [ ] `pnpm test:e2e` 全數通過
+- [ ] `npm run shots` 產出所有指定截圖
+- [ ] `npm run test:e2e` 全數通過
 - [ ] axe serious / critical = 0（375、1280）
 - [ ] Lighthouse 四項 ≥ 90（附中位數分數）
 - [ ] CI workflow 在本地以 `act` 或邏輯審查確認步驟完整

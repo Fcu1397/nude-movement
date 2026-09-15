@@ -20,18 +20,29 @@ Codex 負責**工程基礎與行為層**：專案骨架、design tokens、資料
 
 ## 指令
 
-```bash
-pnpm install
-pnpm dev          # http://localhost:3000
-pnpm lint
-pnpm typecheck
-pnpm test         # vitest
-pnpm test:e2e     # playwright（C3 之後）
-pnpm generate     # SSG 輸出到 .output/public
-pnpm shots        # 各斷點截圖到 .shots/（C3 之後）
+**本機全域 Node 是 20.11，不可升級。** 專案以 devDependency `node@22` 提供 Node 22：
+`npm run <script>` 會自動使用專案內的 Node 22；但**安裝依賴必須透過下列包裝指令**，
+否則 npm 會在 Node 20 下跳過 native binding（rolldown）導致 build 失敗。
+
+```powershell
+# 安裝 / 新增依賴（唯一允許的安裝方式）
+npx -y -p node@22.23.2 -p npm@11 -c "npm install"
+npx -y -p node@22.23.2 -p npm@11 -c "npm install -D <package>"
 ```
 
-若 sandbox 禁止網路導致 `pnpm install` 失敗，停下來請使用者核准，不要改用其他套件管理器。
+**不要**直接執行 `npm install`、`npx nuxi init`，也不要使用 pnpm / yarn。一次性 CLI 請包成 `package.json` script 再以 `npm run` 執行。
+
+```bash
+npm run dev          # http://localhost:3000
+npm run lint
+npm run typecheck
+npm run test         # vitest
+npm run test:e2e     # playwright（C3 之後）
+npm run generate     # SSG 輸出到 .output/public
+npm run shots        # 各斷點截圖到 .shots/（C3 之後）
+```
+
+若 sandbox 禁止網路導致安裝失敗，停下來請使用者核准，不要改用其他套件管理器或降版繞過。
 
 ## Code style
 
@@ -54,6 +65,6 @@ pnpm shots        # 各斷點截圖到 .shots/（C3 之後）
 ## 完成定義
 
 1. 任務卡上的驗收項目逐條達成。
-2. `pnpm lint && pnpm typecheck && pnpm test && pnpm generate` 全數通過。
+2. `npm run lint && npm run typecheck && npm run test && npm run generate` 全數通過。
 3. 在任務分支上 commit（Conventional Commits）。
 4. 依任務卡「回報格式」回覆。

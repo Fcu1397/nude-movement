@@ -77,7 +77,7 @@
 
 ## 自我檢查（完成前）
 
-用 `pnpm dev`，瀏覽器 DevTools 切 375 / 768 / 1280 / 1440 逐一檢視：
+用 `npm run dev`，瀏覽器 DevTools 切 375 / 768 / 1280 / 1440 逐一檢視：
 - [ ] 375px 首屏看得到 H1、中文 lead、CTA（LINE 隱藏時只有「查看課程」）
 - [ ] LINE / IG 隱藏與顯示兩種狀態都檢查過，隱藏時沒有空洞（檢查完還原 `site.ts`，不要 commit 測試網址）
 - [ ] 沒有水平捲軸；沒有文字貼齊螢幕邊緣
@@ -85,7 +85,7 @@
 - [ ] 同類圖片比例一致（Hero 4:5、Class 3:4）
 - [ ] 除 Hero 外沒有第二個 h1；section 標題皆 h2
 - [ ] 元件內無 hex、無硬寫文案
-- [ ] `pnpm lint && pnpm typecheck && pnpm generate` 通過
+- [ ] `npm run lint && npm run typecheck && npm run generate` 通過
 
 ## 回報格式
 

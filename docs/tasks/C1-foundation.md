@@ -12,21 +12,62 @@
 
 建立讓 Codex 與 Gemini 可以**平行開發、互不衝突**的基礎：專案骨架、design tokens、完整資料層（SPEC 文案逐字轉錄）、共用基礎元件，以及所有 section 的 stub（定好 props 契約）。
 
-C1 完成時，`pnpm dev` 應可看到**無樣式但內容完整**的單頁，所有文案、價格都正確呈現。
+C1 完成時，`npm run dev` 應可看到**無樣式但內容完整**的單頁，所有文案、價格都正確呈現。
 
 ## 範圍
 
 ### 1. 專案骨架
-- 在 repo 根目錄建立 Nuxt 4 專案。**不得刪除或覆蓋**既有 `md/`、`docs/`、`AGENTS.md`、`GEMINI.md`、`README.md`。
+- 在 repo 根目錄**手動建立** Nuxt 4 專案檔案（不要跑 `nuxi init`，它會在 Node 20 下執行）。**不得刪除或覆蓋**既有 `md/`、`docs/`、`AGENTS.md`、`GEMINI.md`、`README.md`。
+- 以下 baseline 已由整合者在本機（全域 Node 20.11、PowerShell）實測：安裝、`generate`、`test`、`typecheck`、`lint` 全數通過。請以此為起點，版本範圍不要自行降版：
+
+  ```json
+  {
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "postinstall": "nuxt prepare",
+      "dev": "nuxt dev",
+      "build": "nuxt build",
+      "generate": "nuxt generate",
+      "preview": "nuxt preview",
+      "lint": "eslint .",
+      "typecheck": "nuxt typecheck",
+      "test": "vitest run"
+    },
+    "dependencies": {
+      "nuxt": "^4.5.2",
+      "@nuxt/image": "^2.1.0",
+      "@nuxt/fonts": "^0.14.0",
+      "vue": "^3.5.0",
+      "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+      "node": "^22.19.0",
+      "@nuxt/eslint": "^1.17.0",
+      "eslint": "^10.4.0",
+      "@nuxt/test-utils": "^4.3.2",
+      "@vue/test-utils": "^2.4.6",
+      "happy-dom": "^20.0.0",
+      "vitest": "^4.1.0",
+      "vue-tsc": "^3.0.0",
+      "typescript": "~5.9.0"
+    }
+  }
+  ```
+
+  - `tsconfig.json`：`{ "extends": "./.nuxt/tsconfig.json" }`
+  - `eslint.config.mjs`：`import withNuxt from './.nuxt/eslint.config.mjs'; export default withNuxt()`
+  - `vitest.config.ts`：`defineVitestConfig` from `@nuxt/test-utils/config`，需要 Nuxt 環境的測試檔命名 `*.nuxt.test.ts` 或設 `environment: 'nuxt'`
+- 安裝：`npx -y -p node@22.23.2 -p npm@11 -c "npm install"`（見 AGENTS.md），commit `package-lock.json`。
 - `nuxt.config.ts`：
+  - `compatibilityDate: '2026-09-01'`
   - modules：`@nuxt/image`、`@nuxt/fonts`、`@nuxt/eslint`
   - `components: [{ path: '~/components', pathPrefix: false }]`
   - `app.head.htmlAttrs.lang = 'zh-Hant-TW'`
   - `css: ['~/assets/css/tokens.css', '~/assets/css/base.css']`
-  - `image.formats: ['avif', 'webp']`
-  - fonts 依 DECISIONS D4 限定字重
-- `package.json` scripts：`dev` `build` `generate` `preview` `lint` `typecheck`（vue-tsc）`test`（vitest run）
-- `.gitignore` 加入 `.shots/`、`.lighthouseci/`
+  - `image.format: ['avif', 'webp']`（注意：@nuxt/image 2 是 `format`，不是 `formats`）
+  - `fonts.families` 依 DECISIONS D4 限定字重（provider `google`）
+- `.gitignore`：`node_modules/`、`.nuxt/`、`.output/`、`.data/`、`.shots/`、`.lighthouseci/`
 
 ### 2. CSS
 - `app/assets/css/tokens.css`：DECISIONS D3、D4、D5 的**全部** token，含斷點下的 token 覆寫。
@@ -126,8 +167,8 @@ LINE / IG 相關的 `href` 一律引用 `site.lineUrl` / `site.instagramUrl`，�
 
 ## 驗收
 
-- [ ] `pnpm lint && pnpm typecheck && pnpm test && pnpm generate` 通過
-- [ ] `pnpm dev` 可看到完整、順序正確的單頁內容，錨點 id 與 D6 一致
+- [ ] `npm run lint && npm run typecheck && npm run test && npm run generate` 通過
+- [ ] `npm run dev` 可看到完整、順序正確的單頁內容，錨點 id 與 D6 一致
 - [ ] 所有 SPEC 文案、價格逐字正確（抽查 §12、§13、§17）
 - [ ] tokens.css 涵蓋 D3–D5 全部 token；元件內無 hex 色碼
 - [ ] 所有 stub 元件已建立並有 props 型別

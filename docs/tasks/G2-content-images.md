@@ -65,7 +65,7 @@
 
 - [ ] A1–A4 四份文件完成
 - [ ] 4 張暫用圖尺寸比例正確、檔名符合 D9
-- [ ] B2 只改了 `image.alt`；`pnpm typecheck && pnpm test && pnpm generate` 通過
+- [ ] B2 只改了 `image.alt`；`npm run typecheck && npm run test && npm run generate` 通過
 
 ## 回報格式
 
