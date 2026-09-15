@@ -48,8 +48,10 @@ git worktree add ../nude-movement-codex  -b codex/C1-foundation
 git worktree add ../nude-movement-gemini -b gemini/G2-content
 ```
 
-- Codex：在 `../nude-movement-codex` 啟動 `codex`（自動讀取 `AGENTS.md`）
-- Gemini：在 `../nude-movement-gemini` 啟動 `gemini`（自動讀取 `GEMINI.md`，用 `/memory show` 確認含 DECISIONS）
+- 使用 VS Code 擴充套件：分別以**新視窗**開啟兩個 worktree 資料夾，各自在擴充套件面板貼 prompt。
+  - Codex 視窗：`D:\project\Web\nude-movement-codex`（擴充套件讀取 `AGENTS.md`）
+  - Gemini 視窗：`D:\project\Web\nude-movement-gemini`（Gemini Code Assist agent mode 讀取 `GEMINI.md`；prompt 內仍明確要求讀 DECISIONS，以防 `@` 匯入未生效）
+- 環境需求：Node ≥ 20.19（建議 22）與 pnpm。**目前機器為 Node 20.11、無 pnpm，C1 開工前需處理。** G2 Part A 不需要 Node。
 
 ---
 
