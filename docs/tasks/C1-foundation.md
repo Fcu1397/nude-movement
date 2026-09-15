@@ -3,14 +3,12 @@
 | | |
 |---|---|
 | Owner | **Codex** |
-| Branch | `codex/C1-foundation` |
-| 依賴 | 無（第一個執行） |
-| 阻擋 | C2、G1、G2 的程式部分 |
-| 預估 | 1 個 session |
+| 順序 | **1** |
+| 依賴 | 無 |
 
 ## 目標
 
-建立讓 Codex 與 Gemini 可以**平行開發、互不衝突**的基礎：專案骨架、design tokens、完整資料層（SPEC 文案逐字轉錄）、共用基礎元件，以及所有 section 的 stub（定好 props 契約）。
+建立讓 Codex 與 Gemini 可以**分工開發、互不衝突**的基礎：專案骨架、design tokens、完整資料層（SPEC 文案逐字轉錄）、共用基礎元件，以及所有 section 的 stub（定好 props 契約）。
 
 C1 完成時，`npm run dev` 應可看到**無樣式但內容完整**的單頁，所有文案、價格都正確呈現。
 
@@ -178,7 +176,7 @@ LINE / IG 相關的 `href` 一律引用 `site.lineUrl` / `site.instagramUrl`，�
 
 ```md
 ## C1 回報
-- 分支 / commit：
+- commit：
 - 驗收清單：（逐條打勾，未完成者說明）
 - 指令輸出摘要：lint / typecheck / test / generate
 - 新增依賴：（套件名 + 理由）

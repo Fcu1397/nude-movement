@@ -3,10 +3,8 @@
 | | |
 |---|---|
 | Owner | **Codex** |
-| Branch | `codex/C2-interactions` |
-| 依賴 | C1 已合併 |
-| 可平行 | G1、G2 |
-| 阻擋 | C3 |
+| 順序 | **2** |
+| 依賴 | C1 已完成 |
 
 ## 目標
 
@@ -68,7 +66,7 @@
 
 ## 不做
 
-- Gemini 擁有的 section 樣式（見 D2）。若發現 G1 需要的 token 或 BaseButton 行為，可在本分支補在 Codex 的檔案中，並於回報列出。
+- Gemini 擁有的 section 樣式（見 D2）。若發現 G1 需要的 token 或 BaseButton 行為，可補在 Codex 的檔案中，並於回報列出。
 - Playwright / Lighthouse / CI（C3）。
 
 ## 驗收
@@ -86,7 +84,7 @@
 
 ```md
 ## C2 回報
-- 分支 / commit：
+- commit：
 - 驗收清單：
 - 指令輸出摘要：
 - 新增依賴：

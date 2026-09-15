@@ -59,19 +59,19 @@ npm run shots        # 各斷點截圖到 .shots/（C3 完成後可用）
 
 截圖可用 `@.shots/xxx.png` 讀進對話中檢視。
 
-**不要安裝或升級任何套件。** 本機全域 Node 為 20.11，專案靠 devDependency 使用 Node 22。若 worktree 還沒有 `node_modules`，只能用這個指令安裝：
+**不要安裝或升級任何套件。** 本機全域 Node 為 20.11，專案靠 devDependency 使用 Node 22。若專案還沒有 `node_modules`，只能用這個指令安裝：
 `npx -y -p node@22.23.2 -p npm@11 -c "npm install"`（不要直接 `npm install`）。
 
 ## 禁止
 
 - 改 Codex 擁有的檔案、`docs/DECISIONS.md`、`docs/tasks/`、`md/`。
 - 發明營業規則（價格、請假、補課、場租、團課配對方式）。
-- `git push`、merge 或 rebase main。
+- `git push`、建立分支、改寫 git 歷史（rebase / amend / reset）。
 
 ## 完成定義
 
 1. 任務卡上的驗收項目逐條達成。
 2. `npm run lint && npm run typecheck && npm run generate` 通過（`npm run test` 若存在也需通過）。
 3. 在 375px、768px、1280px 寬度下自行檢視過畫面。
-4. 在任務分支上 commit（Conventional Commits）。
+4. 在 `main` 上 commit，訊息帶任務 ID，例如 `feat(G1): ...`（開始任務前先確認 `git status` 乾淨）。
 5. 依任務卡「回報格式」回覆。

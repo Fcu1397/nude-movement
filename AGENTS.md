@@ -59,12 +59,12 @@ npm run shots        # 各斷點截圖到 .shots/（C3 之後）
 - 改 Gemini 擁有的檔案（需要時列入回報的「跨界需求」）。
 - 改 `docs/DECISIONS.md`、`docs/tasks/`、`md/`。
 - 發明營業規則或文案（價格、請假、補課、場租）。
-- `git push`、merge 或 rebase main。
+- `git push`、建立分支、改寫 git 歷史（rebase / amend / reset）。
 - 為了讓測試通過而刪除或跳過測試。
 
 ## 完成定義
 
 1. 任務卡上的驗收項目逐條達成。
 2. `npm run lint && npm run typecheck && npm run test && npm run generate` 全數通過。
-3. 在任務分支上 commit（Conventional Commits）。
+3. 在 `main` 上 commit，訊息帶任務 ID，例如 `feat(C1): ...`（開始任務前先確認 `git status` 乾淨）。
 4. 依任務卡「回報格式」回覆。

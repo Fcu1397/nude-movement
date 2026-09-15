@@ -3,9 +3,8 @@
 | | |
 |---|---|
 | Owner | **Gemini** |
-| Branch | `gemini/G3-visual-qa` |
-| 依賴 | C1、C2、G1 已合併；C3 的 `npm run shots` 已可用 |
-| 可平行 | C3 其餘項目 |
+| 順序 | **6（最後）** |
+| 依賴 | C1、C2、C3、G1、G2 已完成（需要 C3 的 `npm run shots`） |
 
 ## 目標
 
@@ -84,7 +83,7 @@
 
 ```md
 ## G3 回報
-- 分支 / commit：
+- commit：
 - 問題統計：P0 x / P1 x / P2 x（已修 / 未修）
 - 需 Codex 處理的問題 ID：
 - 需業主決定的視覺問題：（例如照片風格、品牌色微調）

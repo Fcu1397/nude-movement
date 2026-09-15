@@ -3,9 +3,8 @@
 | | |
 |---|---|
 | Owner | **Gemini** |
-| Branch | `gemini/G2-content` |
-| 依賴 | Part A 無依賴（**可立即開始**）；Part B 需 C1 已合併 |
-| 可平行 | C1、C2、G1 |
+| 順序 | Part A ✅ 已完成；Part B 為 **4** |
+| 依賴 | Part B：C1、C2、G1 已完成 |
 
 ## 目標
 
@@ -45,7 +44,12 @@
 
 ---
 
-## Part B — 寫入專案（C1 合併後）
+## Part B — 寫入專案（G1 完成後）
+
+### B0. 修正 Part A 文件（整合者審查意見）
+- `photo-brief.md`、`image-prompts.md`：Hero 版面是**文字與照片左右並排**（DECISIONS / G1），照片上不會疊加文字。改為「構圖留白、主體偏一側、畫面安靜」，刪除 text overlay 的描述。
+- `photo-brief.md`：表格的「最低尺寸」與「交件規格：長邊 ≥ 2400px」統一為同一套標準（網站用圖最低尺寸 + 交件長邊 ≥ 2400px，兩者分欄說明）。
+- `owner-checklist.md`：Instagram 連結提供後的變化補上「Contact 區塊的 Instagram 按鈕」；Logo 格式建議改為「深色（非純黑）與白色各一」。
 
 ### B1. 暫用圖片
 - 放到 `public/images/placeholder/`：`hero.jpg`（1600×2000）、`class-ballet.jpg`、`class-stretch.jpg`（1200×1600）、`og.jpg`（1200×630）。
@@ -71,7 +75,7 @@
 
 ```md
 ## G2 回報
-- 分支 / commit：
+- commit：
 - 完成項目：
 - 文案建議重點：（最值得業主看的 3–5 條）
 - 暫用圖片來源：（AI 生成 / 純色佔位）

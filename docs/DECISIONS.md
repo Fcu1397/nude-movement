@@ -224,11 +224,12 @@ Footer
 
 ## D11 Git 與交付流程
 
-- 分支：`codex/<任務ID>-<slug>`、`gemini/<任務ID>-<slug>`，例如 `codex/C1-foundation`。
-- 平行階段建議用 git worktree，讓兩個 agent 各自一個工作目錄。
-- Commit：Conventional Commits（`feat:` `fix:` `style:` `test:` `docs:` `chore:`），英文或中文皆可。
-- agent **不得** push / merge / rebase main；由整合者合併。
-- 完成定義（C1 合併後適用）：
+- **不開分支、不用 worktree**：所有任務依 `docs/DISPATCH.md` 的順序，在 `D:\project\Web\nude-movement` 的 `main` 上逐一執行。
+- 一次只執行一個任務。開始前確認 `git status` 乾淨、上一個任務已 commit。
+- 依序執行時，D2 的檔案擁有權仍然有效（避免後面的任務改壞前面任務的成果）。
+- Commit：Conventional Commits 並帶任務 ID，例如 `feat(C1): scaffold nuxt project`，英文或中文皆可。
+- agent **不得** push、建立分支、改寫 git 歷史（rebase / amend / reset）。
+- 完成定義（C1 完成後適用）：
   ```bash
   npm run lint && npm run typecheck && npm run test && npm run generate
   ```

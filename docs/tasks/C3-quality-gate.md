@@ -3,9 +3,8 @@
 | | |
 |---|---|
 | Owner | **Codex** |
-| Branch | `codex/C3-quality` |
-| 依賴 | C1、C2、G1 已合併（G2 可未完成） |
-| 可平行 | G3（G3 需要本任務的 `npm run shots`，建議先完成第 1 項再通知 G3） |
+| 順序 | **5** |
+| 依賴 | C1、C2、G1、G2 已完成 |
 
 ## 目標
 
@@ -67,7 +66,7 @@
 
 ```md
 ## C3 回報
-- 分支 / commit：
+- commit：
 - 驗收清單：
 - Lighthouse 分數（mobile 中位數）：Perf / A11y / BP / SEO
 - axe 結果：
