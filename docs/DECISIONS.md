@@ -248,5 +248,5 @@ Footer
 | B5 | 補課期限定義 | ✅ 已確認 | 下個月的第一週與第二週 |
 | B6 | GYROKINESIS® 使用資格 | ✅ 已確認 | 老師具認證，可使用 |
 | B7 | 正式照片（見 `docs/content/photo-brief.md`） | 待提供 | 使用暫用圖（D9） |
-| B8 | 網域與部署平台 | 待提供 | `site.url = null` |
+| B8 | 網域與部署平台 | ✅ 暫定 | GitHub Pages：`https://fcu1397.github.io/nude-movement`，`site.url` 已設定；換自訂網域時見 `docs/DEPLOY.md` |
 | B9 | 轉換追蹤（LINE 點擊事件，GA4 / Meta Pixel） | 保留，暫不實作 | v1 不做 |

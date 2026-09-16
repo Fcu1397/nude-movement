@@ -24,7 +24,45 @@ npm run lighthouse   # Lighthouse CI（需先 generate）
   npm run lighthouse
   ```
 
-## 部署（靜態主機）
+## 部署：GitHub Pages（目前使用）
+
+網址：<https://fcu1397.github.io/nude-movement/>
+
+由 `.github/workflows/deploy.yml` 在推上 `main` 時自動建置與部署。
+
+**首次設定（必做一次）**：GitHub repo → **Settings → Pages → Build and deployment → Source** 選 **GitHub Actions**。
+若維持預設的 “Deploy from a branch”，Pages 會用 Jekyll 去渲染 README，出現的是預設主題頁面而不是本網站，且 deploy workflow 會失敗。
+
+### 子路徑（重要）
+
+專案型 Pages 的網址帶 `/nude-movement/`，因此建置時必須帶入 base path：
+
+```bash
+NUXT_BASE_PATH=/nude-movement/ npm run generate
+```
+
+- `nuxt.config.ts` 以 `process.env.NUXT_BASE_PATH` 在**建置期**決定 `app.baseURL`，預設 `/`（本機開發、測試、Lighthouse 都維持根路徑）。
+- **不要改用 `NUXT_APP_BASE_URL`**：那是執行期覆寫，prerender 會拿到 302 重導，產出的 `index.html` 只會是一行 `"Redirecting..."`。
+- favicon 的路徑同樣以 `basePath` 組出來，其餘資源（`_nuxt`、`_ipx`、`_fonts`、`images`）由 Nuxt 自動加前綴。
+
+在 Git Bash 測試子路徑建置時要關掉路徑轉換，否則 `/nude-movement/` 會被 MSYS 轉成 `C:/Program Files/Git/nude-movement/`：
+
+```bash
+MSYS_NO_PATHCONV=1 NUXT_BASE_PATH=/nude-movement/ npm run generate
+```
+
+PowerShell 沒有這個問題：
+
+```powershell
+$env:NUXT_BASE_PATH = "/nude-movement/"; npm run generate
+```
+
+### 換成自訂網域時
+
+1. `app/data/site.ts` 的 `url` 改成新網域（影響 canonical、`og:url`、JSON-LD）。
+2. 網站改在根路徑，刪掉 workflow 裡的 `NUXT_BASE_PATH` 即可。
+
+## 部署（其他靜態主機）
 
 輸出是純靜態檔，任何靜態主機都可以。
 

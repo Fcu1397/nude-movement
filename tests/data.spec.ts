@@ -38,10 +38,13 @@ describe('content data', () => {
     expect(classes.items.every(item => item.image.alt.trim().length > 0)).toBe(true)
   })
 
-  it('keeps all pending site values null', () => {
-    expect(site.url).toBeNull()
+  it('keeps the values the owner has not supplied yet null', () => {
     expect(site.lineUrl).toBeNull()
     expect(site.instagramUrl).toBeNull()
     expect(site.roomFee).toBeNull()
+  })
+
+  it('has an absolute site URL with no trailing slash, so canonical and og:url stay valid', () => {
+    expect(site.url).toMatch(/^https:\/\/\S+[^/]$/)
   })
 })

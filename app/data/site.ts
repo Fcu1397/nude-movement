@@ -2,7 +2,7 @@ import type { SiteConfig } from './types'
 
 export const site: SiteConfig = {
   brandName: 'Nude Movement',
-  url: null,
+  url: 'https://fcu1397.github.io/nude-movement',
   lineUrl: null,
   instagramUrl: null,
   roomFee: null,
