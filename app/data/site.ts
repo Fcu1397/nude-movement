@@ -8,6 +8,7 @@ export const site: SiteConfig = {
   roomFee: null,
   copyrightYear: 2026,
   bookingLabel: 'LINE 預約',
+  bookingBarLabel: 'LINE 預約課程',
   navigation: [
     { label: 'Top', href: '#top' },
     { label: 'Classes', href: '#classes' },

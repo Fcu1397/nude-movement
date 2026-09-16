@@ -25,6 +25,7 @@ export interface SiteConfig {
   roomFee: number | null
   copyrightYear: number
   bookingLabel: string
+  bookingBarLabel: string
   navigation: NavigationLink[]
   seo: {
     title: string

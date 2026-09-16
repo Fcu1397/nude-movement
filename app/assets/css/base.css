@@ -81,3 +81,29 @@ a {
     scroll-behavior: auto;
   }
 }
+
+/* 捲動進場（DECISIONS D8）：隱藏狀態只在 plugin 掛上 js-reveal 後生效 */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 500ms var(--ease),
+    transform 500ms var(--ease);
+}
+
+.js-reveal [data-reveal='fade'] {
+  transform: none;
+}
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
