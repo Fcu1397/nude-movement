@@ -19,7 +19,7 @@ jobs:
           cache: npm
 
       # CI 直接跑 Node 22，不需要本機那組 npx 包裝指令
-      - run: npm ci
+      - run: npx -y -p node@22.23.2 -p npm@11 -c "npm ci"
 
       - run: npm run lint
 
