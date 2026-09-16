@@ -22,13 +22,13 @@
 | # | ID | Agent | 任務卡 | 內容 | 狀態 |
 |---|---|---|---|---|---|
 | 0 | G2-A | Gemini | [G2](tasks/G2-content-images.md) | 文案建議、照片 brief、業主清單、圖片 prompt | ✅ 已完成 |
-| 1 | C1 | Codex | [C1](tasks/C1-foundation.md) | 骨架、Tokens、資料層、元件 stub | |
-| 2 | C2 | Codex | [C2](tasks/C2-interactions.md) | Header、Accordion、底部列、reveal、SEO | |
-| 3 | G1 | Gemini | [G1](tasks/G1-sections.md) | 視覺 sections | |
-| 4 | G2-B | Gemini | [G2](tasks/G2-content-images.md) | 修正文件、暫用圖、alt | |
-| 5 | C3 | Codex | [C3](tasks/C3-quality-gate.md) | 截圖工具、E2E、axe、Lighthouse、CI | |
-| 6 | G3 | Gemini | [G3](tasks/G3-visual-qa.md) | 截圖視覺 QA 與修正 | |
-| 7 | C4 | Codex | （本檔 prompt） | 修正 G3 列給 Codex 的問題 | |
+| 1 | C1 | Codex | [C1](tasks/C1-foundation.md) | 骨架、Tokens、資料層、元件 stub | ✅ 已完成 |
+| 2 | C2 | Codex | [C2](tasks/C2-interactions.md) | Header、Accordion、底部列、reveal、SEO | ✅ 已完成 |
+| 3 | G1 | Gemini | [G1](tasks/G1-sections.md) | 視覺 sections | ✅ 已完成 |
+| 4 | G2-B | Gemini | [G2](tasks/G2-content-images.md) | 修正文件、暫用圖、alt | ✅ 已完成 |
+| 5 | C3 | Codex | [C3](tasks/C3-quality-gate.md) | 截圖工具、E2E、axe、Lighthouse、CI | ✅ 已完成 |
+| 6 | G3 | Gemini | [G3](tasks/G3-visual-qa.md) | 截圖視覺 QA 與修正 | ✅ 已完成 |
+| 7 | C4 | Codex | （本檔 prompt） | 修正 G3 列給 Codex 的問題 | 不需要（G3 的 Codex 問題已於當下修正） |
 
 每一步完成後，你只要確認兩件事：回報裡 **lint / typecheck / test / generate 都通過**，以及 `git log` 有該任務的 commit（例如 `feat(C1): ...`）。
 

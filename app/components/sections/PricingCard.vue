@@ -92,6 +92,7 @@ defineProps<Props>()
   color: var(--color-rose-deep);
   font-family: var(--font-en);
   font-size: var(--fs-price);
+  font-variant-numeric: lining-nums;
   font-weight: 500;
   line-height: 1.1;
 }

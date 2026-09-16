@@ -23,7 +23,12 @@ test.describe('@shots', () => {
 
       for (const id of SECTIONS) {
         const section = page.locator(`#${id}`)
-        await section.scrollIntoViewIfNeeded()
+        // 扣掉 sticky header 的高度，避免區塊標題被蓋住
+        await section.evaluate((el) => {
+          const header = document.querySelector('.site-header')
+          const offset = header ? header.getBoundingClientRect().height + 16 : 0
+          window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset })
+        })
         await page.waitForTimeout(200)
         await section.screenshot({ path: `.shots/${width}-${id}.png` })
       }

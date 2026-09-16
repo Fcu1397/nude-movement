@@ -10,7 +10,7 @@ export const site: SiteConfig = {
   bookingLabel: 'LINE 預約',
   bookingBarLabel: 'LINE 預約課程',
   navigation: [
-    { label: 'Top', href: '#top' },
+    { label: 'Home', href: '#top' },
     { label: 'Classes', href: '#classes' },
     { label: 'Pricing', href: '#pricing' },
     { label: 'Monthly Plan', href: '#monthly' },
