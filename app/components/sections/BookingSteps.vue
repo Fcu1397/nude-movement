@@ -76,10 +76,10 @@ defineProps<Props>()
 
 .booking__number {
   margin-block: 0 var(--space-4);
-  color: var(--color-nude);
+  color: var(--color-rose-deep);
   font-family: var(--font-en);
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1;
 }
 

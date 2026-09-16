@@ -9,24 +9,31 @@
     "preview": "nuxt preview",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "playwright test --grep-invert @shots",
+    "shots": "playwright test --grep @shots",
+    "lighthouse": "lhci autorun",
+    "e2e:install": "playwright install chromium"
   },
   "dependencies": {
-    "nuxt": "^4.5.2",
-    "@nuxt/image": "^2.1.0",
     "@nuxt/fonts": "^0.14.0",
+    "@nuxt/image": "^2.1.0",
+    "nuxt": "^4.5.2",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "node": "^22.19.0",
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
     "@nuxt/eslint": "^1.17.0",
-    "eslint": "^10.4.0",
     "@nuxt/test-utils": "^4.3.2",
+    "@playwright/test": "^1.63.0",
     "@vue/test-utils": "^2.4.6",
+    "eslint": "^10.4.0",
     "happy-dom": "^20.0.0",
+    "node": "^22.19.0",
+    "typescript": "~5.9.0",
     "vitest": "^4.1.0",
-    "vue-tsc": "^3.0.0",
-    "typescript": "~5.9.0"
+    "vue-tsc": "^3.0.0"
   }
 }

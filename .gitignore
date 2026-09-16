@@ -5,3 +5,5 @@ dist/
 .data/
 .shots/
 .lighthouseci/
+test-results/
+playwright-report/

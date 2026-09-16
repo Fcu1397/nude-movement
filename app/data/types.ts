@@ -139,3 +139,11 @@ export interface FooterContent {
   socialLinks: CtaLink[]
   copyright: string
 }
+
+export interface ErrorPageContent {
+  eyebrow: string
+  notFoundTitle: string
+  genericTitle: string
+  description: string
+  homeLabel: string
+}
